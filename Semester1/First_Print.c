@@ -3,6 +3,6 @@ int main()
 {
     printf("\n\tHello World!");
     printf("\n\tWelcome to NSU!");
-    getchar();
+    getch();
     return 0;
 }

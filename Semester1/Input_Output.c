@@ -16,7 +16,6 @@ int main()
     printf("\n\nEnter your name: ");
     scanf("%s",&name);
     printf("Your name is %s", name);
-    getchar();
-    getchar();
+    getch();
     return 0;
 }

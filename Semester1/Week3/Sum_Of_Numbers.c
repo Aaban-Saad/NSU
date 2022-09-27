@@ -2,7 +2,7 @@
 int main()
 {
     int t, i, num, sum = 0;
-    printf("\n\tHow many numbers do you want enter? ->");
+    printf("\n\tHow many numbers do you want to enter? ->");
     scanf("%d",&t);
     for(i = 1; i <= t; i ++)
     {

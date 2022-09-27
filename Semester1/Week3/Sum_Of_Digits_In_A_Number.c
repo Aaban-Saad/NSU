@@ -10,7 +10,6 @@ int main()
         rem = num % 10;
         sum = sum + rem;
         num = ans;
-        printf("||%d, %d", rem, ans);
     }while(ans != 0);
     printf("\n\tSum of digit(s) = %d\n\n",sum);
     getch();

@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
 
 double araSUM(double n[], int size);
 double araAVG(double n[], int size);
@@ -11,51 +13,51 @@ int main()
 {
     int size, i;
 
-    printf("\n\tEnter the size of the array: ");
-    scanf("%d", &size);
-
-    double ara[size];
-
-    for(i = 0; i < size; i ++)
+    while (1)
     {
-        printf("\tEnter element %d:", i + 1);
-        scanf("%lf",&ara[i]);
-    }
+        printf("\n\tEnter the size of the array: ");
+        scanf("%d", &size);
 
-    printf("\n\tArray          = [");
-    for(i = 0; i < size; i ++)
-    {
-        printf(" %6.2lf ", ara[i]);
-    }
-    printf("]");
+        double ara[size];
 
-    araREVERSE(ara, size);
-    printf("\n\tReversed array = [");
-    for(i = 0; i < size; i ++)
-    {
-        printf(" %6.2lf ", ara[i]);
-    }
-    printf("]");
+        for(i = 0; i < size; i ++)
+        {
+            printf("\tEnter element %d:", i + 1);
+            scanf("%lf",&ara[i]);
+        }
 
-    araSORT(ara, size);
-    printf("\n\tSorted array   = [");
-    for(i = 0; i < size; i ++)
-    {
-        printf(" %6.2lf ", ara[i]);
-    }
-    printf("]");
+        printf("\n\tArray          = [");
+        for(i = 0; i < size; i ++)
+        {
+            printf(" %6.2lf ", ara[i]);
+        }
+        printf("]");
 
-    printf("\n\tSum            = %7.3lf",araSUM(ara, size));
+        araREVERSE(ara, size);
+        printf("\n\tReversed array = [");
+        for(i = 0; i < size; i ++)
+        {
+            printf(" %6.2lf ", ara[i]);
+        }
+        printf("]");
 
-    printf("\n\tAverage        = %7.3lf",araAVG(ara, size));
+        araSORT(ara, size);
+        printf("\n\tSorted array   = [");
+        for(i = 0; i < size; i ++)
+        {
+            printf(" %6.2lf ", ara[i]);
+        }
+        printf("]");
 
-    printf("\n\tMax            = %7.3lf",araMAX(ara, size));
+        printf("\n\tSum            = %7.3lf",araSUM(ara, size));
+
+        printf("\n\tAverage        = %7.3lf",araAVG(ara, size));
+
+        printf("\n\tMax            = %7.3lf",araMAX(ara, size));
 
 
-    double search;
-    int found;
-    while(1)
-    {
+        double search;
+        int found;
         printf("\n\n\tSearch in array: ");
         scanf("%lf",&search);
         found = araSEARCH(ara, size, search);
@@ -68,12 +70,45 @@ int main()
                 printf("\t Found at position %d", found + 1);
                 break;
         }
+        //Asking before looping the program
+        char ask;
+        printf("\n\n\t[Press 'C' to clear view] ");
+        printf("\n\tTry again? (Y/N) --> ");
+        while(1)
+        {
+            ask = getch();
+            printf("%c",ask);
+            if(ask == 'y' || ask == 'Y')
+            {
+                printf("\n________________________________________________\n\n");
+                break;
+            }
+            else if(ask == 'c' || ask == 'C')
+            {
+                system("cls");
+                break;
+            }
+            else if(ask == 'n' || ask == 'N')
+            {
+                return 0;
+            }
+            else if(ask == 8)
+            {
+                printf(" \a");
+            }
+            else if(ask == 13)
+            {
+                printf("\t                     ");
+                printf("\n\n\tTry again? (y/n) --> ");
+            }
+            else
+            {
+                printf("\b \b\a");
+            }
+        }
     }
-
-    getch();
-
-    return 0;
 }
+    
 
 double araSUM(double n[], int size)
 {

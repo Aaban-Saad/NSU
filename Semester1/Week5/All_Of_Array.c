@@ -8,6 +8,11 @@ void araSORT(double n[], int size);
 void araREVERSE(double n[], int size);
 int araSEARCH(double n[], int size, double value);
 double araMAX(double n[], int size);
+double araMIN(double n[], int size);
+double ara2MAX(double n[], int size);
+double ara2MAX(double n[], int size);
+double ara2MIN(double n[], int size);
+void araPRIME(double n[]; int size);
 
 int main()
 {
@@ -50,10 +55,14 @@ int main()
         printf("]");
 
         printf("\n\tSum            = %7.3lf",araSUM(ara, size));
-
         printf("\n\tAverage        = %7.3lf",araAVG(ara, size));
-
         printf("\n\tMax            = %7.3lf",araMAX(ara, size));
+        printf("\n\tMin            = %7.3lf",araMIN(ara, size));
+        printf("\n\t2nd max        = %7.3lf",ara2MAX(ara, size));
+        printf("\n\t2nd min        = %7.3lf",ara2MAX(ara, size));
+
+        printf("\n\tPrime numbers in array: ");
+        araPRIME(ara, size);
 
 
         double search;
@@ -151,14 +160,14 @@ void araSORT(double n[], int size)
 
 void araREVERSE(double n[], int size)
 {
-    int i, j, t;
+    int i, j;
+    double t;
     for(i = 0, j = size - 1; i < (size/2); i ++, j --)
     {
         t = n[i];
         n[i] = n[j];
         n[j] = t;
     }
-    return 0;
 }
 
 //Searches for an element. If found returns array position(i), else returns -1
@@ -178,7 +187,6 @@ int araSEARCH(double n[], int size, double value)
     return result;
 }
 
-//Finds the max element in the array
 double araMAX(double n[], int size)
 {
     int i, max = n[0];
@@ -191,3 +199,88 @@ double araMAX(double n[], int size)
     }
     return max;
 }
+
+double araMIN(double n[], int size)
+{
+    int i, min = n[0];
+    for(i = 0; i < size; i ++)
+    {
+        if(n[i] < min)
+        {
+            min = n[i];
+        }
+    }
+    return min;
+}
+
+double ara2MAX(double n[], int size)
+{
+    int i, max2, streak = 0;
+    double t;
+    //sorting
+    while(streak < size - 1)
+    {
+        for(i = 1; i < size; i ++)
+        {
+            if(n[i] < n[i - 1])
+            {
+                t = n[i];
+                n[i] = n[i - 1];
+                n[i - 1] = t;
+                streak = 0;
+            }
+            else
+            {
+                streak ++;
+            }
+        }
+    }
+    return n[size - 2];
+}
+
+double ara2MIN(double n[], int size)
+{
+    int i, max2, streak = 0;
+    double t;
+    //sorting
+    while(streak < size - 1)
+    {
+        for(i = 1; i < size; i ++)
+        {
+            if(n[i] < n[i - 1])
+            {
+                t = n[i];
+                n[i] = n[i - 1];
+                n[i - 1] = t;
+                streak = 0;
+            }
+            else
+            {
+                streak ++;
+            }
+        }
+    }
+    return n[1];
+}
+
+void araPRIME(double n[]; int size)
+{
+    int i, j, prime;
+
+    for(i = 0; i < size; i ++)
+    {
+        prime = 1;
+        for(j = 2; j < n[i]; j ++)
+        {
+            if((int)n[i] % 2 == 0)
+            {
+                break;
+                prime = 0;
+            }
+        }
+        if(prime && n[i] != 1)
+        printf("\n\t%d", (int)n[i]);
+    }
+    
+}
+

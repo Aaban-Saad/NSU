@@ -5,7 +5,8 @@ int main()
 	{
 		char a;
 		printf("\n	Enter a character: ");
-		scanf(" %c",&a);
+		a = getchar();
+		fflush(stdin);
 		printf("	%c = %d",a,a);
 		if(a >= 48 && a<=57)
 		{

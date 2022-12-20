@@ -69,7 +69,7 @@ int main()
     printByDept(deptName, st, stNum);
 
     char fileName[50];
-    printf("\n\n\n\tEnter file name to save by department: ");
+    printf("\n\n\n\tEnter filename to save by department: ");
     safe_gets_by_Aaban_Saad(fileName, 50);
     saveByDept(fileName, deptName, st, stNum);
 
